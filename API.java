@@ -43,7 +43,7 @@ public class API
        s1.setCarr(carGio);
 
        //Creazione di un appello
-       Appello esameLogica = f.creaAppello(logMat, "17/02/2024", tipoAppello.presenza, tipoProva.finale);
+       Appello esameLogica = f.creaAppello(logMat, "17/02/2024", tipoAppello.presenza, tipoProva.finale, tipoDomandeCompito.domandeChiuse);
        esameLogica.iscrivi(s1, esameLogica);
 
     }
