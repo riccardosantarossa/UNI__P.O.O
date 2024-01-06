@@ -38,19 +38,23 @@ public class ObjFactory
     }
 
     /*
-     * Istanzia un oggetto di tipo appello
+     * Istanzia un oggetto di tipo appello, che può essere a domande aperte o chiuse
      * @param e: Corso di cui l'appello è 
      * @param d: data dell'appello
      * @param stud: studenti iscritti all'appello
+     * @param t : tipologia di appello, se remoto o in presenza
+     * @param tp : prova parziale o finale
+     * @param td : specifica se l'appello è a domande chiuse o aperte
      * @return istanza di un appello del corso passato come parametro con data e studente iscritto
      */
-    public Appello creaAppello(Corso c, String d, tipoAppello t, tipoProva tp)
+    public Appello creaAppello(Corso c, String d, tipoAppello t, tipoProva tp, tipoDomandeCompito td)
     {
        Appello a = new Appello();
        a.setCorsodiRiferimento(c);
        a.setData(d);
        a.setTipo(t);
        a.setModEsame(tp);
+       a.setTipoDomande(td);
 
        return a;
     }
