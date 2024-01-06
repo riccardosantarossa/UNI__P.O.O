@@ -15,6 +15,7 @@ public class Appello
     private List<Studente> studIscritti = new ArrayList<>();
     private tipoAppello tipo;
     private tipoProva modEsame;
+    private tipoDomandeCompito tipoDomande;
 
     //METODI GET E SET
     
@@ -33,6 +34,10 @@ public class Appello
     //Medodo di esame
     public tipoProva getModEsame() {return this.modEsame;}
     public void setModEsame(tipoProva modEsame) {this.modEsame = modEsame;}
+
+    //Tipo di domande
+    public tipoDomandeCompito getTipoDomande() {return this.tipoDomande;}
+    public void setTipoDomande(tipoDomandeCompito tipoDomande) {this.tipoDomande = tipoDomande;}
 
     /*
      * Controlla se lo studente ha superato i prerequisiti per un corsodiRiferimento
