@@ -11,17 +11,7 @@ public class ObjFactory
      */
     public Studente creaStudente(int mat, String n, String cn)
     {
-        Studente s = new Studente();
-        try
-        {
-            s.setNumMatricola(mat);
-            s.setNome(n);
-            s.setCognome(cn);
-            s.setCarr(new Carriera());
-
-        }catch (Exception e) {e.printStackTrace();}
-       
-        return s;
+        return new Studente(mat, n, cn);
     }
 
     /*
