@@ -98,7 +98,9 @@ public class Appello
             
     }
 
-    /* Valuta il risultato di un quiz e restituisce il voto su una scala in trentesimi
+    
+    /* 
+    * Valuta il risultato di un quiz e restituisce il voto su una scala in trentesimi
     * @param q : quiiz che si intende valutare
     * @param numeroRisposteCorrette : numero di risposte esatte date dallo studente >=0
     * @return voto : voto calcolato in trentesimi
