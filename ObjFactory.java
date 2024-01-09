@@ -3,7 +3,7 @@ import java.util.List;
 public class ObjFactory 
 {
     /*
-     * Istanzia un oggetto di tipo studente
+     * Istanzia un oggetto di tipo studente con dati VALIDI
      * @param mat: numero di matricola
      * @param n: nome dello studente
      * @param cn: cognome dello studente
@@ -12,11 +12,15 @@ public class ObjFactory
     public Studente creaStudente(int mat, String n, String cn)
     {
         Studente s = new Studente();
-        s.setNumMatricola(mat);
-        s.setNome(n);
-        s.setCognome(cn);
-        s.setCarr(new Carriera());
+        try
+        {
+            s.setNumMatricola(mat);
+            s.setNome(n);
+            s.setCognome(cn);
+            s.setCarr(new Carriera());
 
+        }catch (Exception e) {e.printStackTrace();}
+       
         return s;
     }
 

@@ -37,10 +37,11 @@ public class API
        {
         carGio.aggiungiCorsoSuperato(anaMat);
         carGio.aggiungiCorsoSuperato(matDis);
+        s1.setCarr(carGio);
        } 
        catch (Exception e) {e.printStackTrace();}
     
-       s1.setCarr(carGio);
+       
 
        //Creazione di un appello
        Appello esameLogica = f.creaAppello(logMat, "17/02/2024", tipoAppello.presenza, tipoProva.finale, tipoDomandeCompito.domandeChiuse);
