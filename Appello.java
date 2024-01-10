@@ -39,6 +39,26 @@ public class Appello
     public tipoDomandeCompito getTipoDomande() {return this.tipoDomande;}
     public void setTipoDomande(tipoDomandeCompito tipoDomande) {this.tipoDomande = tipoDomande;}
 
+    
+    /*
+     * Costruttore con controllo sull'input
+    */
+    public Appello(Corso c, String d, tipoAppello tA, tipoProva tP, tipoDomandeCompito tD)
+    {
+        if(c == null)
+            throw new IllegalArgumentException("L'appello deve riferirsi ad un corso");
+        else
+            this.corsodiRiferimento = c;
+
+        if(d.isEmpty())
+            throw new IllegalArgumentException("L'appello deve avere una data");
+
+        this.tipo = tA;
+        this.modEsame = tP;
+        this.tipoDomande = tD;
+    }
+    
+    
     /*
      * Controlla se lo studente ha superato i prerequisiti per un corsodiRiferimento
      * attraverso la sua carriera
@@ -66,7 +86,6 @@ public class Appello
         {
             if(controlloPrerequisiti(s.getCarr(), a.getCorsodiRiferimento()))
                 a.studIscritti.add(s);
-          
         } catch (Exception e) {e.printStackTrace();}
     }
 
@@ -80,22 +99,12 @@ public class Appello
     */
     public Corso valutaAppello(Studente s, Appello a, int v) throws Exception
     {
-        
         if(a.getTipoDomande() != tipoDomandeCompito.domandeChiuse)
             throw new Exception("L'esame deve esssere valutato dal docente");
         else if(v < 18)
              throw new Exception("L'esame risulta insufficiente");
         else
-        {
-            //Costruisco il corso superato
-            Corso corsoSuperato = new Corso();
-            corsoSuperato.setMateria(a.getCorsodiRiferimento().getMateria());
-            corsoSuperato.setPesoCFU(a.getCorsodiRiferimento().getPesoCFU());
-            corsoSuperato.setVotoFinale(v);
-
-            return corsoSuperato;
-        } 
-            
+            return new Corso(a.getCorsodiRiferimento().getMateria(), v, a.getCorsodiRiferimento().getPesoCFU());
     }
 
     

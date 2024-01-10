@@ -17,18 +17,13 @@ public class ObjFactory
     /*
      * Istanzia un oggetto di tipo Corso
      * @param corso: nome del corso 
-     * @param requisiti: lista degli esami prerequisiti, NULL se l'Corso non ne ha
+     * @param pre: lista degli esami prerequisiti, NULL se l'Corso non ne ha
+     * @param peso: intero, peso del corso in CFU
      * @return istanza di un Corso del corso passato come parametro con i prerequisiti scelti
     */
     public Corso creaCorso(String m, List<Corso> pre, int peso)
     {
-        Corso c = new Corso();
-        c.setMateria(m);
-        c.setCorsiPrerequisiti(pre);
-        c.setPesoCFU(peso);
-
-        return c;
-
+        return new Corso(m, 0, peso);
     }
 
     /*
@@ -43,13 +38,6 @@ public class ObjFactory
      */
     public Appello creaAppello(Corso c, String d, tipoAppello t, tipoProva tp, tipoDomandeCompito td)
     {
-       Appello a = new Appello();
-       a.setCorsodiRiferimento(c);
-       a.setData(d);
-       a.setTipo(t);
-       a.setModEsame(tp);
-       a.setTipoDomande(td);
-
-       return a;
+       return new Appello(c, d, t, tp, td);
     }
 }
