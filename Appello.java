@@ -12,7 +12,7 @@ public class Appello
 
     private Corso corsodiRiferimento;
     private String data;
-    private List<Studente> studIscritti = new ArrayList<>();
+    private List<Studente> studIscritti;
     private tipoAppello tipo;
     private tipoProva modEsame;
     private tipoDomandeCompito tipoDomande;
@@ -53,9 +53,11 @@ public class Appello
         if(d.isEmpty())
             throw new IllegalArgumentException("L'appello deve avere una data");
 
+        this.studIscritti = new ArrayList<>();
         this.tipo = tA;
         this.modEsame = tP;
         this.tipoDomande = tD;
+
     }
     
     
