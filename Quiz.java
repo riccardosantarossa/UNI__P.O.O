@@ -15,5 +15,16 @@ public class Quiz
     public int getNumeroDomande() {return this.numeroDomande;}
     public void setNumeroDomande(int numeroDomande) {this.numeroDomande = numeroDomande;}
 
+    /* 
+    * Valuta il risultato di un quiz e restituisce il voto su una scala in trentesimi
+    * @param numeroRisposteCorrette : numero di risposte esatte date dallo studente >=0
+    * @return voto : voto calcolato in trentesimi
+    */
+    public int valuta(int numeroRisposteCorrette)
+    {
+        int voto = (int) (numeroRisposteCorrette / numeroDomande) * 30;
+        return voto;
+    }
+
 }
 

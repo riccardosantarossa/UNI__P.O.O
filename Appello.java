@@ -107,20 +107,4 @@ public class Appello
             return new Corso(a.getCorsodiRiferimento().getMateria(), v, a.getCorsodiRiferimento().getPesoCFU());
     }
 
-    
-    /* 
-    * Valuta il risultato di un quiz e restituisce il voto su una scala in trentesimi
-    * @param q : quiiz che si intende valutare
-    * @param numeroRisposteCorrette : numero di risposte esatte date dallo studente >=0
-    * @return voto : voto calcolato in trentesimi
-    */
-    public int valutaQuiz(Quiz q, int numeroRisposteCorrette)
-    {
-        int domande = q.getNumeroDomande();
-        int voto;
-
-        voto = (int) (numeroRisposteCorrette / domande) * 30;
-        
-        return voto;
-    }
 }
