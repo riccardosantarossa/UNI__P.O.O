@@ -2,6 +2,15 @@ import java.util.List;
 
 public class ObjFactory 
 {
+
+    /*
+     * Classe creata per adempiere al pattern factory: tutti i metodi contenuti 
+     * servono ad istanziare altri oggetti attraverso il loro costruttore.
+     * Sono presenti metodi per creare istanze di Studenti, Corsi e Appelli, ognuna di 
+     * essi con input controllato grazie ai costruttori delle singole classi 
+     */
+
+
     /*
      * Istanzia un oggetto di tipo studente con dati VALIDI
      * @param mat: numero di matricola

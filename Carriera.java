@@ -8,16 +8,27 @@ public class Carriera
      * quindi gli esami che ha superato con relativi voti e peso in CFU
      * Contiene inoltre la lista dei corsi a cui lo studente è iscritto, anche se non ha ancora 
      * sostenutto l'esame di quei determinati corsi
+     * Permette di operare sulla carriera quindi aggiungere ed eliminare corsi perchè superati
+     * e permette inoltre di calcolare la media tra i voti ottenuti
     */
 
-    private List<Corso> corsiSuperati = new ArrayList<>();
-    private List<Corso> corsiFrequentati = new ArrayList<>();
+    private List<Corso> corsiSuperati;
+    private List<Corso> corsiFrequentati;
 
     //Metodi get e set
     public List<Corso> getCorsiFrequentati() {return this.corsiFrequentati;}
     public void setCorsiFrequentati(List<Corso> corsiFrequentati) {this.corsiFrequentati = corsiFrequentati;}
     public List<Corso> getcorsiSuperati() {return this.corsiSuperati;}
     public void setcorsiSuperati(List<Corso> corsiSuperati) {this.corsiSuperati = corsiSuperati;}
+
+
+    //Costruttore
+    public Carriera()
+    {
+        corsiSuperati = new ArrayList<>();
+        corsiFrequentati = new ArrayList<>();
+    }
+
 
     /*
      * Aggiunge un'iscrizione ad un corso da parte di uno studente
@@ -69,13 +80,13 @@ public class Carriera
 
     /*
      * Calcola le statisiche relative alla carriera di uno studente quindi la
-     * somma dei CFU dei corsi superati dallo studente e media dei voti
+     * somma dei CFU dei corsi superati dallo studente e media ponderata dei voti
      * @param s: studente di cui si vogliono calcolare le statistiche, NON NULLO 
-     * @return : lista che contiene le statistiche calcolate, quindi media e sommaCFU
+     * @return : lista che contiene le statistiche calcolate, quindi media ponderata e sommaCFU
      */
     public List<Number> calcolaVotoMedio(Studente s)
     {
-        int sommaCFU = 0, sommaVoti = 0;
+        int sommaCFU = 0, sommaVotiPonderata = 0;
         List<Number> listaStatistiche =  new ArrayList<>();
         Carriera c =  s.getCarr();
 
@@ -83,11 +94,11 @@ public class Carriera
         for( Corso x : c.getcorsiSuperati())
         {
             sommaCFU += x.getPesoCFU();
-            sommaVoti += x.getVotoFinale();
+            sommaVotiPonderata += x.getVotoFinale()*x.getPesoCFU();
         }
 
         listaStatistiche.add(sommaCFU);
-        listaStatistiche.add(sommaVoti / c.getcorsiSuperati().size());
+        listaStatistiche.add(sommaVotiPonderata / sommaCFU);
 
         return listaStatistiche;
     }

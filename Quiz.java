@@ -2,7 +2,7 @@ public class Quiz
 {
     /* 
     * Classe che rappresenta il tipo di esame a risposta chiusa quindi  
-    * con un numero di domande fisso e a risposts vera o falsa   
+    * con un numero di domande fisso e a risposta vera o falsa   
     * Gli esami di questo tipo vengono corretti automaticamente
     * dall'apposito metodo per la correzione
     */    

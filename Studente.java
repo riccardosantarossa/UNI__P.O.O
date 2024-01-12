@@ -1,11 +1,11 @@
-import java.util.ArrayList;
-
 public class Studente
 {
 
     /*
      * Rappresenta l'anagragfica dello studente
-     * e la sua carriera universitaria
+     * e la sua carriera universitaria. La classe non contiene metodi in quanto 
+     * tutte le informazioni relative alla "vita" universitaria dello studente sono contenute
+     * nella sua carriera
      */
 
     private int numMatricola;
