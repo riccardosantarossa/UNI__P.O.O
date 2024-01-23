@@ -3,6 +3,12 @@ import java.util.List;
 
 public class Corso 
 {
+
+    /*
+     * Classe che rappresenta un corso dell'ateneo, contiene tutte le informazioni utili alla sua creazione
+     * ovvero la materia che tratta, la lista dei corsi prerequisiti e il peso in CFU.
+     */
+
     private String materia;
     private List<Corso> corsiPrerequisiti;
     private int votoFinale, pesoCFU;

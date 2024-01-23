@@ -7,7 +7,9 @@ public class Appello
     /*
      * Classe volta a gestire gli appelli degli esami dell'ateneo
      * Permette di creare appelli per un certo Corso in una certa data e di determinata 
-     * tipologia, se in presenza o in remoto
+     * tipologia, se in presenza o in remoto. 
+     * Sono presenti anche controlli specifici come il superamento di tutti i corsi prerequisiti per poter
+     * iscrivere un determinato studente ad un appello
     */
 
     private Corso corsodiRiferimento;
@@ -80,7 +82,7 @@ public class Appello
     /* 
      * Iscrive uno studente all'appello se possiede tutti i requisiti
      * @param s : studente idoneo ad essere iscritto (in regola con tasse e prerequisiti)
-     * @param a : appello di un corso
+     * @param a : appello di un corso a cui si vuole iscrivere lo studente
     */
     public void iscrivi(Studente s, Appello a)
     {
