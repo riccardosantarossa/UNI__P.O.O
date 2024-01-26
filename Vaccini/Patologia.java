@@ -12,6 +12,14 @@ public class Patologia
      private String nome;
      private List<Farmaco> cura;
 
+     public List<Farmaco> getCura() {
+         return this.cura;
+     }
+
+     public void setCura(List<Farmaco> cura) {
+         this.cura = cura;
+     }
+
      public Patologia(String n, List<Farmaco> lF)
      {
         if(n.isEmpty())
@@ -23,5 +31,9 @@ public class Patologia
             throw new IllegalArgumentException("Elemento nullo");
         else
             this.cura = lF;
+     }
+
+     public void AggiungiFarmaco(Farmaco f){
+        cura.add(f);
      }
 }

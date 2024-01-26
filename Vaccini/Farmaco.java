@@ -1,5 +1,6 @@
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Farmaco 
@@ -14,25 +15,89 @@ public class Farmaco
 
     private String nome;
     private Patologia patologiaCurata;
-    private float dosaggio;
+    private float dosaggioMin;
+    private float dosaggioMax;
     private List<Farmaco> compatibilità;
+    private int etaMinima;
+    private int durata;
+
+    public int getDurata() {
+        return this.durata;
+    }
+
+    public void setDurata(int durata) {
+        this.durata = durata;
+    }
+
+    public float getDosaggioMin() {
+        return this.dosaggioMin;
+    }
+
+    public void setDosaggioMin(float dosaggioMin) {
+        this.dosaggioMin = dosaggioMin;
+    }
+
+    public float getDosaggioMax() {
+        return this.dosaggioMax;
+    }
+
+    public void setDosaggioMax(float dosaggioMax) {
+        this.dosaggioMax = dosaggioMax;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Patologia getPatologiaCurata() {
+        return this.patologiaCurata;
+    }
+
+    public void setPatologiaCurata(Patologia patologiaCurata) {
+        this.patologiaCurata = patologiaCurata;
+    }
+
+    public List<Farmaco> getCompatibilità() {
+        return this.compatibilità;
+    }
+
+
+    public int getEtaMinima() {
+        return this.etaMinima;
+    }
+
+    public void setEtaMinima(int etaMinima) {
+        this.etaMinima = etaMinima;
+    }
+
 
     //Costruttore con controllo sull'input
-    public Farmaco(String n, float d, List<Farmaco> lF)
+    public Farmaco(String n, float dmin, float dmax, int d)
     {   
         if(n.isEmpty())
             throw new IllegalArgumentException("Inserire un nome non vuoto");
         else
             this.nome = n;
 
-        if(d < 0)
+        if(dmax < 0 || dmin < 0)
             throw new IllegalArgumentException("Inserire un dosaggio valido");
         else
-            this.dosaggio = d;
+        {
+            this.dosaggioMin = dmin;
+            this.dosaggioMax = dmax;
+        }
 
-        if(lF == null)
-            throw new IllegalArgumentException("Elemento nullo");
-        else
-            this.compatibilità = lF;
+        
+            
+       compatibilità = new ArrayList<Farmaco>();
+    }
+
+    public void AggiungiFarmacoNonCompatibile(Farmaco f)
+    {
+        compatibilità.add(f);
     }
 }

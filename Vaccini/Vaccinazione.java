@@ -17,20 +17,54 @@ public class Vaccinazione
     private String dataVaccinazione;
     private Paziente pazienteVaccinato;
 
-
-    /*
-     * Metodo che controlla se tutti i prerequisiti per la vaccinazione vengono rispettati
-     * @param p: paziente che si vuole vaccinare
-     * @param f: farmaco usato nella vaccinazione
-     */
-    public void vaccina(Paziente p, Farmaco f)
-    {
-        List<Patologia> lP = p.getPatologie();
-        List<Farmaco> lF = new ArrayList<>();
-
-        for(Patologia pat : lP)
-        {
-            lF.add(pat.)
-        }
+    public Farmaco getFarmacoUsato() {
+        return this.farmacoUsato;
     }
+
+    public void setFarmacoUsato(Farmaco farmacoUsato) {
+        this.farmacoUsato = farmacoUsato;
+    }
+
+    public String getDataVaccinazione() {
+        return this.dataVaccinazione;
+    }
+
+    public void setDataVaccinazione(String dataVaccinazione) {
+        this.dataVaccinazione = dataVaccinazione;
+    }
+
+    public Paziente getPazienteVaccinato() {
+        return this.pazienteVaccinato;
+    }
+
+    public void setPazienteVaccinato(Paziente pazienteVaccinato) {
+        this.pazienteVaccinato = pazienteVaccinato;
+    }
+
+    public boolean checkRegola(Farmaco f, Paziente p){
+        Regola check = new Regola();
+
+       return(check.controllaCompatibilita(p, f) && check.controllaIntervallo(p, f) && check.etaFarmaco(p, f));
+
+    }
+
+    public Vaccinazione(Patologia pat, Paziente p, String data) throws Exception
+    {
+        farmacoUsato = pat.getCura().get(0);
+        if (!checkRegola(farmacoUsato, pazienteVaccinato))
+            throw new Exception("I no vax non sono graditi ");
+
+        else{
+            
+            dataVaccinazione = data;
+            pazienteVaccinato = pazienteVaccinato;
+        }
+
+
+            
+        
+    }
+
+
+  
 }

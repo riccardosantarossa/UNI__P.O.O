@@ -17,22 +17,24 @@ public class Paziente
     private String nome;
     private String cognome;
     private int eta;
+    private LibrettoVaccinazioni libretto;
 
-    private List<Patologia> patologie;
-    private List<Vaccinazione> storicoVaccinazioni;
+    public LibrettoVaccinazioni getLibretto() {
+        return this.libretto;
+    }
+
+    public void setLibretto(LibrettoVaccinazioni libretto) {
+        this.libretto = libretto;
+    }
 
     //Getter e setter
-
-    //Patologia
-    public List<Patologia> getPatologie() {return this.patologie;}
-    public void setPatologie(List<Patologia> patologie) {this.patologie = patologie;}
-
+   
     //Età
     public int getEta() {return this.eta;}
 
 
     //Costruttore con controllo dell'input
-    public Paziente(String n, String cn, int eta, List<Patologia> lp, List<Vaccinazione> lv)
+    public Paziente(String n, String cn, int eta)
     {
         if(n.isEmpty() || cn.isEmpty())
             throw new IllegalArgumentException("Inserire nome e cognome validi");
@@ -47,13 +49,7 @@ public class Paziente
         else
             this.eta = eta;
 
-        if(lp == null || lv == null)
-            throw new IllegalArgumentException("Liste nulle");
-        else
-        {
-            this.patologie = lp;
-            this.storicoVaccinazioni = lv;
-        }
+        this.libretto = new LibrettoVaccinazioni();
         
     }
    
