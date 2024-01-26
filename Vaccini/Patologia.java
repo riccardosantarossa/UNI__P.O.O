@@ -1,4 +1,3 @@
-package Vaccini;
 
 import java.util.List;
 
