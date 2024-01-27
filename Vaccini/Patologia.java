@@ -6,43 +6,40 @@ public class Patologia
 {
     /*
      * Rappresenta la patologia che va curata.
-     * Della patologia si rappresenta il nome , con una descrizione dei sintomi
-     * e la lista dei farmaci (uno o più) necessari per curarla.
+     * Della patologia si rappresenta il nome , e la lista dei farmaci (uno o più) necessari per curarla.
+     * Si possono aggiungere farmaci nella lista dei possibili trattamente mediante il metodo apposito,
+     * tali farmaci saranno utilizzabili come vaccino 
      */
 
-     private String nome;
-     private List<Farmaco> faramciPerVaccino;
+    private String nome;
+    private List<Farmaco> faramciPerVaccino;
 
-     public List<Farmaco> getCura() {
-         return this.faramciPerVaccino;
-     }
+    //Getter e setter
+    public List<Farmaco> getCura() {return this.faramciPerVaccino; }
+    public void setCura(List<Farmaco> faramciPerVaccino) { this.faramciPerVaccino = faramciPerVaccino;}
 
-     public void setCura(List<Farmaco> faramciPerVaccino) {
-         this.faramciPerVaccino = faramciPerVaccino;
-     }
+    public String getNomePatoligia() {return this.nome;}
 
-     public String getNomePatoligia() {
-        return this.nome;
-    }
-
-     public Patologia(String n)
-     {
+    //Costruttore con controllo dell'input
+    public Patologia(String n)
+    {
         if(n.isEmpty())
             throw new IllegalArgumentException("Inserire un nome non vuoto");
         else
             this.nome = n;
 
-        faramciPerVaccino = new ArrayList<Farmaco>();
-        
-     }
+        this.faramciPerVaccino = new ArrayList<Farmaco>();
+    }
 
+    /*
+     * Aggiunge un farmaco alla lista di farmaci utilizzabili come vaccino per 
+     * la patologia in questione
+     * @param f: farmaco da aggiungere alla lista
+     */
     public void AggiungiFarmaco(Farmaco f)
     {
         faramciPerVaccino.add(f);
     }
 
-    public void AggiungiFarmaco(Farmaco f)
-    {
-        cura.add(f);
-    }
+
 }

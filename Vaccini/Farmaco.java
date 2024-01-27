@@ -8,9 +8,9 @@ public class Farmaco
     /*
     * Rappresenta un farmaco che può essere utilizzato per la cura di una 
     * determinata patologia. 
-    * Di ogni farmaco viene rappresentato il nome e il dosaggio
-    * in modo da poter vedere con chiarezza a che tipologia di persone può
-    * essere somministrato
+    * Di ogni farmaco viene rappresentato il nome con relativo dosaggio massimo e minimo
+    * che può essere somministrato e l'età minima di somministrazione.
+    * Di un farmaco si rappresentano anche la lista di farmaci compatibili per future vaccomazopmo
     */    
 
     private String nome;
@@ -21,58 +21,32 @@ public class Farmaco
     private int etaMinima;
     private int durata;
 
-    public int getDurata() {
-        return this.durata;
-    }
+    //Getter e setter
 
-    public void setDurata(int durata) {
-        this.durata = durata;
-    }
+    //Durata della coperture
+    public int getDurata() {return this.durata;}
+    public void setDurata(int durata) {this.durata = durata;}
 
-    public int getDosaggioMin() {
-        return this.dosaggioMin;
-    }
+    //Dosaggio
+    public int getDosaggioMin() {return this.dosaggioMin;}
+    public void setDosaggioMin(int dosaggioMin) {this.dosaggioMin = dosaggioMin;}
+    public int getDosaggioMax() {return this.dosaggioMax;}
+    public void setDosaggioMax(int dosaggioMax) {this.dosaggioMax = dosaggioMax;}
 
-    public void setDosaggioMin(int dosaggioMin) {
-        this.dosaggioMin = dosaggioMin;
-    }
+    //Nome del farmaco
+    public String getNome() {return this.nome;}
+    public void setNome(String nome) {this.nome = nome;}
 
-    public int getDosaggioMax() {
-        return this.dosaggioMax;
-    }
+    //Patologia curata
+    public Patologia getPatologiaCurata() { return this.patologiaCurata;}
+    public void setPatologiaCurata(Patologia patologiaCurata) {this.patologiaCurata = patologiaCurata;}
 
-    public void setDosaggioMax(int dosaggioMax) {
-        this.dosaggioMax = dosaggioMax;
-    }
+    //Farmaci compatibili 
+    public List<Farmaco> getCompatibilità() {return this.compatibilità;}
 
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Patologia getPatologiaCurata() {
-        return this.patologiaCurata;
-    }
-
-    public void setPatologiaCurata(Patologia patologiaCurata) {
-        this.patologiaCurata = patologiaCurata;
-    }
-
-    public List<Farmaco> getCompatibilità() {
-        return this.compatibilità;
-    }
-
-
-    public int getEtaMinima() {
-        return this.etaMinima;
-    }
-
-    public void setEtaMinima(int etaMinima) {
-        this.etaMinima = etaMinima;
-    }
+    //Età minima
+    public int getEtaMinima() {return this.etaMinima;}
+    public void setEtaMinima(int etaMinima) {this.etaMinima = etaMinima;}
 
 
     //Costruttore con controllo sull'input
@@ -90,14 +64,31 @@ public class Farmaco
             this.dosaggioMin = dmin;
             this.dosaggioMax = dmax;
         }
-
+       
+        if(d < 0)
+            throw new IllegalArgumentException("Inserire una durata valida"); 
+        else
+            this.durata = d;
         
-       durata = d;     
-       compatibilità = new ArrayList<Farmaco>();
-       patologiaCurata = pat;
-       this.etaMinima = etaMinima;
+        if(pat == null)
+            throw new IllegalArgumentException("Oggetto patologia nullo");
+        else
+            this.patologiaCurata = pat;
+
+
+        if(etaMinima < 0)
+            throw new IllegalArgumentException("Inserire un'et' minima valida"); 
+        else
+            this.etaMinima = etaMinima;
+
+        this.compatibilità = new ArrayList<Farmaco>();
     }
 
+    /*
+     * Metodo che permette di aggiungere un farmaco non compatibile alla lista
+     * di incompatibilità, per evitare vaccinazioni errate nel futuro
+     * @param f: farmaco da aggiungere alla lista, NON NULLO
+     */
     public void AggiungiFarmacoNonCompatibile(Farmaco f)
     {
         compatibilità.add(f);

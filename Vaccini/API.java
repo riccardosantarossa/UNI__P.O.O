@@ -10,7 +10,7 @@ public class API
         Patologia pat1 = f.creaPatologia("EpatiteC");
         pat1.AggiungiFarmaco(f.creaFarmaco("FarmacoEpatiteC", 1, 4,pat1,3,10));
         try {
-            p1.getLibretto().vaccinazioniEffettuate.add(f.creaUnaVaccinazione(pat1,2003, p1));
+            p1.getLibretto().getVaccinazioniEffettuate().add(f.creaUnaVaccinazione(pat1,2003, p1));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
