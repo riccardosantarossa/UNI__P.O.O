@@ -14,7 +14,6 @@ public class Patologia
      private List<Farmaco> faramciPerVaccino;
 
      public List<Farmaco> getCura() {
-<<<<<<< HEAD
          return this.faramciPerVaccino;
      }
 
@@ -27,16 +26,6 @@ public class Patologia
     }
 
      public Patologia(String n)
-=======
-         return this.cura;
-     }
-
-     public void setCura(List<Farmaco> cura) {
-         this.cura = cura;
-     }
-
-     public Patologia(String n, List<Farmaco> lF)
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
      {
         if(n.isEmpty())
             throw new IllegalArgumentException("Inserire un nome non vuoto");
@@ -47,11 +36,13 @@ public class Patologia
         
      }
 
-     public void AggiungiFarmaco(Farmaco f){
+    public void AggiungiFarmaco(Farmaco f)
+    {
         faramciPerVaccino.add(f);
-     }
+    }
 
-     public void AggiungiFarmaco(Farmaco f){
+    public void AggiungiFarmaco(Farmaco f)
+    {
         cura.add(f);
-     }
+    }
 }

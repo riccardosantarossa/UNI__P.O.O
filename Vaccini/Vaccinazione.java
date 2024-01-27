@@ -26,19 +26,11 @@ public class Vaccinazione
         this.farmacoUsato = farmacoUsato;
     }
 
-<<<<<<< HEAD
     public int getDataVaccinazione() {
         return this.dataVaccinazione;
     }
 
     public void setDataVaccinazione(int dataVaccinazione) {
-=======
-    public String getDataVaccinazione() {
-        return this.dataVaccinazione;
-    }
-
-    public void setDataVaccinazione(String dataVaccinazione) {
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
         this.dataVaccinazione = dataVaccinazione;
     }
 
@@ -57,7 +49,6 @@ public class Vaccinazione
 
     }
 
-<<<<<<< HEAD
     public void configuraRegolaDosaggio(Paziente p, Farmaco f)
     {
         if (p.getEta()<= 6) 
@@ -72,25 +63,14 @@ public class Vaccinazione
     {
         farmacoUsato = pat.getCura().get(0);
         if (!checkRegola(farmacoUsato, p))
-=======
-    public Vaccinazione(Patologia pat, Paziente p, String data) throws Exception
-    {
-        farmacoUsato = pat.getCura().get(0);
-        if (!checkRegola(farmacoUsato, pazienteVaccinato))
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
             throw new Exception("I no vax non sono graditi ");
 
         else{
             
-<<<<<<< HEAD
             configuraRegolaDosaggio(p, farmacoUsato);
             dataVaccinazione = data;
             pazienteVaccinato = p;
 
-=======
-            dataVaccinazione = data;
-            pazienteVaccinato = pazienteVaccinato;
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
         }
 
 
@@ -99,8 +79,4 @@ public class Vaccinazione
     }
 
 
-<<<<<<< HEAD
-=======
-  
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
 }

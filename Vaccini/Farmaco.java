@@ -15,13 +15,8 @@ public class Farmaco
 
     private String nome;
     private Patologia patologiaCurata;
-<<<<<<< HEAD
     private int dosaggioMin;
     private int dosaggioMax;
-=======
-    private float dosaggioMin;
-    private float dosaggioMax;
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
     private List<Farmaco> compatibilità;
     private int etaMinima;
     private int durata;
@@ -34,7 +29,6 @@ public class Farmaco
         this.durata = durata;
     }
 
-<<<<<<< HEAD
     public int getDosaggioMin() {
         return this.dosaggioMin;
     }
@@ -48,21 +42,6 @@ public class Farmaco
     }
 
     public void setDosaggioMax(int dosaggioMax) {
-=======
-    public float getDosaggioMin() {
-        return this.dosaggioMin;
-    }
-
-    public void setDosaggioMin(float dosaggioMin) {
-        this.dosaggioMin = dosaggioMin;
-    }
-
-    public float getDosaggioMax() {
-        return this.dosaggioMax;
-    }
-
-    public void setDosaggioMax(float dosaggioMax) {
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
         this.dosaggioMax = dosaggioMax;
     }
 
@@ -97,11 +76,7 @@ public class Farmaco
 
 
     //Costruttore con controllo sull'input
-<<<<<<< HEAD
     public Farmaco(String n, int dmin, int dmax, int d, Patologia pat, int etaMinima)
-=======
-    public Farmaco(String n, float dmin, float dmax, int d)
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
     {   
         if(n.isEmpty())
             throw new IllegalArgumentException("Inserire un nome non vuoto");
@@ -117,20 +92,10 @@ public class Farmaco
         }
 
         
-<<<<<<< HEAD
        durata = d;     
        compatibilità = new ArrayList<Farmaco>();
        patologiaCurata = pat;
        this.etaMinima = etaMinima;
-=======
-            
-       compatibilità = new ArrayList<Farmaco>();
-    }
-
-    public void AggiungiFarmacoNonCompatibile(Farmaco f)
-    {
-        compatibilità.add(f);
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
     }
 
     public void AggiungiFarmacoNonCompatibile(Farmaco f)

@@ -8,7 +8,6 @@ public class RegistroVaccinazioni
     public void AggiungiPaziente(Paziente p){
         pazienti.add(p);
     }
-<<<<<<< HEAD
     public String copertura(String nome, String cognome, String pat){
             
         for(Paziente p : pazienti)
@@ -40,7 +39,4 @@ public class RegistroVaccinazioni
     }
     
 
-=======
-    
->>>>>>> 068026310ecb3dd37cd06599b852e87e9f078f74
 }
