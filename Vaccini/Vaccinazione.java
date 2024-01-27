@@ -1,4 +1,3 @@
-package Vaccini;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,23 +14,69 @@ public class Vaccinazione
     */
     
     private Farmaco farmacoUsato;
-    private String dataVaccinazione;
+    private int dataVaccinazione;
     private Paziente pazienteVaccinato;
+    private int dosaggioIniettato;
 
-
-    /*
-     * Metodo che controlla se tutti i prerequisiti per la vaccinazione vengono rispettati
-     * @param p: paziente che si vuole vaccinare
-     * @param f: farmaco usato nella vaccinazione
-     */
-    public void vaccina(Paziente p, Farmaco f)
-    {
-        List<Patologia> lP = p.getPatologie();
-        List<Farmaco> lF = new ArrayList<>();
-
-        for(Patologia pat : lP)
-        {
-            lF.add(pat.)
-        }
+    public Farmaco getFarmacoUsato() {
+        return this.farmacoUsato;
     }
+
+    public void setFarmacoUsato(Farmaco farmacoUsato) {
+        this.farmacoUsato = farmacoUsato;
+    }
+
+    public int getDataVaccinazione() {
+        return this.dataVaccinazione;
+    }
+
+    public void setDataVaccinazione(int dataVaccinazione) {
+        this.dataVaccinazione = dataVaccinazione;
+    }
+
+    public Paziente getPazienteVaccinato() {
+        return this.pazienteVaccinato;
+    }
+
+    public void setPazienteVaccinato(Paziente pazienteVaccinato) {
+        this.pazienteVaccinato = pazienteVaccinato;
+    }
+
+    public boolean checkRegola(Farmaco f, Paziente p){
+        Regola check = new Regola();
+
+       return(check.controllaCompatibilita(p, f) && check.controllaIntervallo(p, f) && check.etaFarmaco(p, f));
+
+    }
+
+    public void configuraRegolaDosaggio(Paziente p, Farmaco f)
+    {
+        if (p.getEta()<= 6) 
+            dosaggioIniettato = f.getDosaggioMin();
+        else
+            dosaggioIniettato = f.getDosaggioMax();
+
+
+    }
+
+    public Vaccinazione(Patologia pat, Paziente p, int data) throws Exception
+    {
+        farmacoUsato = pat.getCura().get(0);
+        if (!checkRegola(farmacoUsato, p))
+            throw new Exception("I no vax non sono graditi ");
+
+        else{
+            
+            configuraRegolaDosaggio(p, farmacoUsato);
+            dataVaccinazione = data;
+            pazienteVaccinato = p;
+
+        }
+
+
+            
+        
+    }
+
+
 }

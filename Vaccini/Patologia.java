@@ -1,5 +1,5 @@
-package Vaccini;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Patologia 
@@ -11,18 +11,32 @@ public class Patologia
      */
 
      private String nome;
-     private List<Farmaco> cura;
+     private List<Farmaco> faramciPerVaccino;
 
-     public Patologia(String n, List<Farmaco> lF)
+     public List<Farmaco> getCura() {
+         return this.faramciPerVaccino;
+     }
+
+     public void setCura(List<Farmaco> faramciPerVaccino) {
+         this.faramciPerVaccino = faramciPerVaccino;
+     }
+
+     public String getNomePatoligia() {
+        return this.nome;
+    }
+
+     public Patologia(String n)
      {
         if(n.isEmpty())
             throw new IllegalArgumentException("Inserire un nome non vuoto");
         else
             this.nome = n;
 
-        if(lF == null)
-            throw new IllegalArgumentException("Elemento nullo");
-        else
-            this.cura = lF;
+        faramciPerVaccino = new ArrayList<Farmaco>();
+        
+     }
+
+     public void AggiungiFarmaco(Farmaco f){
+        faramciPerVaccino.add(f);
      }
 }
