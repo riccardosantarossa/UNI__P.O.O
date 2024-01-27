@@ -6,7 +6,7 @@ public class API
         ObjFactory f = new ObjFactory();
         RegistroVaccinazioni registro = f.creaRegistro();
         Paziente p1 = f.creaUnPaziente("Giovanni", "Rossi", 57);
-        registro.AggiungiPaziente(p1);
+        registro.aggiungiPaziente(p1);
         Patologia pat1 = f.creaPatologia("EpatiteC");
         pat1.AggiungiFarmaco(f.creaFarmaco("FarmacoEpatiteC", 1, 4,pat1,3,10));
         try {
